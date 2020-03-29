@@ -74,6 +74,8 @@ nav {
   position: fixed;
   z-index: 1;
 }
+
+
 .logo {
   font-size: 2rem;
   padding: 0 50px;
@@ -85,8 +87,7 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  width: 25%;
-  padding: 0 0 0 100px;
+  width: 20%;
   justify-content: space-evenly;
 }
 
@@ -122,6 +123,12 @@ nav {
 
 .nav-links button:hover {
   color: rgb(70, 70, 226);
+}
+
+@media (max-width: 1500px) {
+  .nav-links {
+    margin-right: 80px;
+  }
 }
 
 /* search page */
