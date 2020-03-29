@@ -20,6 +20,9 @@ body, .app {
 
 .bookshelf {
   padding: 0 10px 20px;
+  margin: 0 auto;
+  width: 80vw;
+  height: 80vh;
 }
 
 @media (min-width: 600px) {
@@ -30,6 +33,7 @@ body, .app {
 
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
+  color: rgb(70, 70, 226);
 }
 
 .bookshelf-books {
