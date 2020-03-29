@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from './components/Nav'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -39,9 +40,7 @@ class BooksApp extends React.Component {
           </div>
         ) : (
           <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
+            <Nav />
             <div className="list-books-content">
               <div>
                 <div className="bookshelf">
