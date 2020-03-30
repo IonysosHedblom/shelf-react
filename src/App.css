@@ -20,9 +20,9 @@ body, .app {
 
 .bookshelf {
   padding: 0 10px 20px;
-  margin: 0 auto 150px auto;
-  width: 75vw;
-  height: 80vh;
+  margin: 0 auto 70px auto;
+  width: 70vw;
+  height: 73vh;
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 10px rgba(192, 192, 192, 0.452), -10px 8px 15px rgba(192, 192, 192, 0.452), 10px 8px 15px rgba(192, 192, 192, 0.452);
   border-radius: 1%;
@@ -42,10 +42,9 @@ body, .app {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
   color: #2932e4;
-  padding: 30px 0 0 0;
-  font-size: 2rem;
+  padding: 35px 0 0 50px;
+  font-size: 2.2rem;
 }
 
 .bookshelf-books {
@@ -93,7 +92,7 @@ nav {
 
 
 .logo {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 0 50px;
   margin: 0;
   color: #2932e4;
@@ -213,8 +212,8 @@ button:active {
 }
 
 .book {
-  width: 13vw;
-  margin: 100px 0 0 0;
+  width: 10.5vw;
+  margin: 80px 0 0 0;
 }
 
 .book-title,
@@ -240,8 +239,8 @@ button:active {
   position: absolute;
   right: 0;
   bottom: -10px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: #2932e4;
   background-image: url('./icons/arrow-drop-down.svg');
@@ -265,8 +264,48 @@ button:active {
   background: #eee;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 13vw;
-  height: 32vh;
+  width: 10vw;
+  height: 25vh;
+}
+
+@media (max-width: 1600px) {
+  .book {
+    width: 16vw;
+  }
+  .book-cover {
+    width: 15vw;
+    height: 27vh;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .book {
+    width: 16vw;
+  }
+  .book-cover {
+    width: 15vw;
+    height: 25vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .book {
+    width: 25vw;
+    margin: 0;
+  }
+  .book-cover {
+    width: 24vw;
+    height: 25vh;
+  }
+  .book-shelf-changer {
+    width: 45px;
+    height: 45px;
+  }
+  .bookshelf {
+    height: 82vh;
+    width: 90vw;
+  }
 }
 
 .book-cover-title {
