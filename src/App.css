@@ -21,7 +21,7 @@ body, .app {
 .bookshelf {
   padding: 0 10px 20px;
   margin: 0 auto;
-  width: 65vw;
+  width: 75vw;
   height: 80vh;
   background: rgb(255, 255, 255);
   box-shadow: 0 5px 6px 5px rgba(0,0,0,0.16), 0 3px 6px 3px rgba(0,0,0,0.23);
@@ -30,6 +30,13 @@ body, .app {
 @media (min-width: 600px) {
   .bookshelf {
     padding: 0 20px 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bookshelf {
+    height: 50vh;
+    width: 82vw;
   }
 }
 
@@ -135,7 +142,7 @@ nav {
 
 @media (max-width: 1500px) {
   .nav-links {
-    margin-right: 80px;
+    margin-right: 90px;
   }
 }
 
