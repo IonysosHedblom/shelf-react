@@ -23,7 +23,7 @@ class Home extends Component {
         <div className="list-books-content">
           <Shelf title="Currently Reading" books={this.props.currentlyReading} />
           <Shelf title="Want To Read" books={this.props.wantToRead} />
-          <Shelf title="Read" books={this.props.read} />  
+          <Shelf title="Read" books={this.props.read} />
         </div>
         <FAB />
       </div>
