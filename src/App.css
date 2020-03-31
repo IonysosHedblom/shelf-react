@@ -270,11 +270,12 @@ button:active {
 
 @media (max-width: 1600px) {
   .book {
-    width: 16vw;
+    width: 13vw;
+    margin: 45px 0 0 0;
   }
   .book-cover {
-    width: 15vw;
-    height: 27vh;
+    width: 12vw;
+    height: 30vh;
   }
 }
 

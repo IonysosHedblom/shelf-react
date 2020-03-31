@@ -9,17 +9,22 @@ class Home extends Component {
     books: [],
     currentlyReading: [],
     wantToRead: [],
-    read: []
+    read: [],
+    addBooks: books => {
+      const currentlyReading = books.filter(book => book.shelf === 'currentlyReading');
+      const wantToRead = books.filter(book => book.shelf === 'wantToRead');
+      const read = books.filter(book => book.shelf === 'read');
+      this.setState({ currentlyReading, wantToRead, read });
+    }
   }
+
 
   // Fetch books from api
   async componentDidMount() {
     try {
       const books = await getAll();
-      const currentlyReading = books.filter(book => book.shelf === 'currentlyReading');
-      const wantToRead = books.filter(book => book.shelf === 'wantToRead');
-      const read = books.filter(book => book.shelf === 'read');
-      this.setState({ currentlyReading, wantToRead, read });
+      this.state.addBooks(books);
+      console.log(books);
     } catch (err) {
       console.log(err);
     }
