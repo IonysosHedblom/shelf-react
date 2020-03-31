@@ -5,12 +5,21 @@ import FAB from '../components/FAB';
 import { getAll } from '../BooksAPI';
 
 class Home extends Component {
+  state = {
+    books: [],
+    currentlyReading: [],
+    wantToRead: [],
+    read: []
+  }
 
   // Fetch books from api
   async componentDidMount() {
     try {
       const books = await getAll();
-      this.props.addBooks(books);
+      const currentlyReading = books.filter(book => book.shelf === 'currentlyReading');
+      const wantToRead = books.filter(book => book.shelf === 'wantToRead');
+      const read = books.filter(book => book.shelf === 'read');
+      this.setState({ currentlyReading, wantToRead, read });
     } catch (err) {
       console.log(err);
     }
@@ -21,9 +30,9 @@ class Home extends Component {
       <div className="list-books">
         <Nav />
         <div className="list-books-content">
-          <Shelf title="Currently Reading" books={this.props.currentlyReading} />
-          <Shelf title="Want To Read" books={this.props.wantToRead} />
-          <Shelf title="Read" books={this.props.read} />
+          <Shelf title="Currently Reading" books={this.state.currentlyReading} />
+          <Shelf title="Want To Read" books={this.state.wantToRead} />
+          <Shelf title="Read" books={this.state.read} />
         </div>
         <FAB />
       </div>
