@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import history from '../history';
 
 class Search extends Component {
   render() {
     return(
       <div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+          <button className="close-search" onClick={() => history.push('/')}>Close</button>
           <div className="search-books-input-wrapper">
             {/*
               NOTES: The search from BooksAPI is limited to a particular set of search terms.
