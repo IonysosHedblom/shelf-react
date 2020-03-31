@@ -22,7 +22,7 @@ body, .app {
   padding: 0 10px 20px;
   margin: 0 auto 70px auto;
   width: 70vw;
-  height: 73vh;
+  height: 90vh;
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 10px rgba(192, 192, 192, 0.452), -10px 8px 15px rgba(192, 192, 192, 0.452), 10px 8px 15px rgba(192, 192, 192, 0.452);
   border-radius: 1%;
@@ -265,7 +265,7 @@ button:active {
   background-repeat: no-repeat;
   background-size: cover;
   width: 10vw;
-  height: 25vh;
+  height: 28vh;
 }
 
 @media (max-width: 1600px) {
@@ -290,6 +290,15 @@ button:active {
   }
 }
 
+@media (max-height: 600px) {
+  .book {
+    margin: 0;
+  }
+  .book-cover {
+    height: 35vh;
+  }
+}
+
 @media (max-width: 600px) {
   .book {
     width: 25vw;
@@ -304,7 +313,7 @@ button:active {
     height: 45px;
   }
   .bookshelf {
-    height: 82vh;
+    height: 85vh;
     width: 90vw;
   }
 }
