@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../components/Nav';
 import Shelf from '../components/Shelf';
-import FAB from '../components/FAB';
 import { getAll } from '../BooksAPI';
 
 class Home extends Component {
@@ -24,7 +23,6 @@ class Home extends Component {
     try {
       const books = await getAll();
       this.state.addBooks(books);
-      console.log(books);
     } catch (err) {
       console.log(err);
     }
@@ -35,11 +33,10 @@ class Home extends Component {
       <div className="list-books">
         <Nav />
         <div className="list-books-content">
-          <Shelf title="Currently Reading" books={this.state.currentlyReading} />
+          <Shelf title="Currently Reading" books={this.state.currentlyReading} sortingBooks={this.correctShelf} />
           <Shelf title="Want To Read" books={this.state.wantToRead} />
           <Shelf title="Read" books={this.state.read} />
         </div>
-        <FAB />
       </div>
     );
   }
