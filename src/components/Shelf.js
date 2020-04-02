@@ -3,8 +3,15 @@ import { update } from '../BooksAPI';
 
 
 class Shelf extends Component {
+  
+  moveBook = (event, book) => {
+    const shelf = event.currentTarget.value;
+    update(book, shelf).then(result => {
+      this.props.sortBooks();
+    })
+  }
+
   render() {
-    const { book } = this.props;
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">{this.props.title}</h2>
@@ -19,7 +26,7 @@ class Shelf extends Component {
                     }}>
                     </div>
                     <div className="book-shelf-changer">
-                      <select value={book.shelf}>
+                      <select value={book.shelf} onChange={event => this.moveBook(event, book)}>
                         <option value="move" disabled>Move to...</option>
                         <option value="currentlyReading">Currently Reading</option>
                         <option value="wantToRead">Want to Read</option>

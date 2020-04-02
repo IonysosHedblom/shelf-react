@@ -10,8 +10,8 @@ class Shelves extends Component {
 
     return(
       <div className="list-books-content">
-        <Shelf title="Currently Reading" books={currentlyReading} />
-        <Shelf title="Want To Read" books={wantToRead} />
+        <Shelf title="Currently Reading" books={currentlyReading} sortBooks={this.props.sortBooks} />
+        <Shelf title="Want To Read" books={wantToRead} sortBooks={this.props.sortBooks} />
         <Shelf title="Read" books={read} sortBooks={this.props.sortBooks} />
       </div>
     )
