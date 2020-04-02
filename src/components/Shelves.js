@@ -12,7 +12,7 @@ class Shelves extends Component {
       <div className="list-books-content">
         <Shelf title="Currently Reading" books={currentlyReading} />
         <Shelf title="Want To Read" books={wantToRead} />
-        <Shelf title="Read" books={read} />
+        <Shelf title="Read" books={read} sortBooks={this.props.sortBooks} />
       </div>
     )
   }

@@ -8,22 +8,20 @@ class Home extends Component {
     books: []
   };
 
+  componentDidMount() {
+    this.getBooks();
+  }
   // Fetch all books from api
-  async componentDidMount() {
-    try {
-      await getAll().then(books => {
-        this.setState({ books });
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+  getBooks = () => {
+    getAll().then(books => {
+      this.setState({ books });
+    });
+  }
   render() {
     return(
       <div className="list-books">
         <Nav />
-        <Shelves books={this.state.books} />
+        <Shelves books={this.state.books} sortBooks={this.getBooks} />
       </div>
     );
   }
