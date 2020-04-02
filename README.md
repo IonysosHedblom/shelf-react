@@ -14,4 +14,4 @@ Created with React.js. This project is created as a part of Udacity React, Redux
 Features:
 Search for new books by title or authors.
 Move books around the shelfs. Books that the user is reading will appear on the 'Currently Reading shelf'. Books that the user want's to read will appear on the 'Want To Read' shelf. And the same goes for the 'read' shelf, where the books that the user has already read appears.
->>>>>>> a24f7d27f2b9cff583c6c3bb4cb677d059feb06d
+
