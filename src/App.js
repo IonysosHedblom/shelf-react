@@ -13,7 +13,7 @@ class BooksApp extends Component {
         <Router history={history}>
           <Switch>
             <Route exact path={"/"} component={Home} />
-            <Route exact path={"/search"} component ={Search} />
+            <Route exact path={"/search"} component={Search} />
           </Switch>
         </Router>
       </div>
