@@ -6,58 +6,40 @@ import { search } from '../BooksAPI';
 class Search extends Component {
 
   state = {
-    query: '',
-    books: []
+    results: []
   };
 
 
 
   handleInputChange = async event => {
-    try {
-      const query = event.target.value;
-      this.setState({
-        query
+    const query = event.target.value.trim();
+    if (query) {
+      await search(query, 20).then(results => {
+        this.setState({
+          results
+        });
       });
-      if (query.trim()) {
-        const searchResults = await search(query);
-        if (searchResults.err) {
-          this.setState({
-            books: []
-          })
-        } else {
-          this.setState({
-            books: searchResults
-          });
-        }
-      }
-    } catch (err) {
-      console.log(err);      
+    } else {
+      this.setState({
+        results: []
+      })
     }
   };
 
 
   render() {
-    const { query } = this.state;
-    
     return(
       <div className="search-books">
         <div className="search-books-bar">
           <button className="close-search" onClick={() => history.push('/')}>Close</button>
           <div className="search-books-input-wrapper">
-            {/*
-              NOTES: The search from BooksAPI is limited to a particular set of search terms.
-              You can find these search terms here:
-              https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-              However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-              you don't find a specific author or title. Every search is limited by search terms.
-            */}
-            <input type="text" placeholder="Search by title or author" onChange={this.handleInputChange} value={query} />
+            <input type="text" placeholder="Search by title or author" onChange={this.handleInputChange} />
           </div>
         </div>
         <div className="search-books-results">
+          <h2 className="bookshelf-title">Book results</h2>
           <ol className="books-grid">
-            {this.state.books.length > 0 && this.state.books.map(book => <Book key={book.id} {...book} sortBooks={this.props.sortBooks} />)}
+            {this.state.results.length > 0 && this.state.results.map((book, index) => <Book key={index} {...book} title={book.title} authors={book.authors} shelf='none' sortBooks={this.props.sortBooks} />)} 
           </ol>
         </div>
       </div>

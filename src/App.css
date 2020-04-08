@@ -24,6 +24,7 @@ body, .app {
   background: rgb(255, 255, 255);
   box-shadow: 0px 8px 10px rgba(192, 192, 192, 0.452), -10px 8px 15px rgba(192, 192, 192, 0.452), 10px 8px 15px rgba(192, 192, 192, 0.452);
   border-radius: 2%;
+  overflow-y: auto;
 }
 
 @media (min-width: 600px) {
@@ -43,6 +44,7 @@ body, .app {
   color: #2932e4;
   padding: 35px 0 0 50px;
   font-size: 2.2rem;
+  margin-bottom: -20px;
 }
 
 .bookshelf-books {
@@ -326,4 +328,45 @@ button:active {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+.about {
+  padding: 0 10px 20px;
+  margin: 125px auto 70px auto;
+  width: 70vw;
+  height: 100vh;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 8px 10px rgba(192, 192, 192, 0.452), -10px 8px 15px rgba(192, 192, 192, 0.452), 10px 8px 15px rgba(192, 192, 192, 0.452);
+  border-radius: 2%;
+  overflow-y: auto;
+}
+
+.about-header {
+  color: #242424;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.about-text {
+  width: 40vw;
+  margin: 100px auto;
+}
+
+.about-text p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.search-terms-text {
+  width: 30vw;
+  margin: 150px auto;
+}
+
+.search-terms-text p {
+  font-size: 1.5rem;
+}
+
+.search-terms {
+  color: grey;
+  padding: 10px 20px;
 }
