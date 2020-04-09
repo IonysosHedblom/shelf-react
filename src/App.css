@@ -18,7 +18,7 @@ body, .app {
 
 .bookshelf {
   padding: 0 10px 20px;
-  margin: 0 auto 70px auto;
+  margin: 170px auto 70px auto;
   width: 70vw;
   height: 80vh;
   background: rgb(255, 255, 255);
@@ -369,4 +369,12 @@ button:active {
 .search-terms {
   color: grey;
   padding: 10px 20px;
+}
+
+.books-result {
+  float: right;
+  margin: -5px 50px 0 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2932e4;
 }

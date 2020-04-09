@@ -1,40 +1,21 @@
 import React, { Component } from 'react';
-import { update } from '../BooksAPI';
+import ShelfChanger from './ShelfChanger';
 
 class Book extends Component {
-  
-  moveBook = async event => {
-    try {
-      const shelf = event.target.value;
-      const book = this.props;
-      await update(book, shelf);
-      this.props.sortBooks(book, shelf);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   render() {
+    const { book, books } = this.props;
     return (
         <li>
           <div className="book">
             <div className="book-top">
               <div className="book-cover" style={{
-                backgroundImage: `url(${this.props.imageLinks ? this.props.imageLinks.thumbnail : ""})`
+                backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ""})`
               }}>
               </div>
-              <div className="book-shelf-changer">
-                <select value={this.props.shelf} onChange={this.moveBook}>
-                  <option value="none" disabled>Move to...</option>
-                  <option value="currentlyReading">Currently Reading</option>
-                  <option value="wantToRead">Want to Read</option>
-                  <option value="read">Read</option>
-                  <option value="none">None</option>
-                </select>
-              </div>
+              <ShelfChanger book={book} books={books} sortBooks={this.props.sortBooks} />
             </div>
-            <div className="book-title">{this.props.title}</div>
-            <div className="book-authors">{this.props.authors ? this.props.authors[0] : ''}</div>
+            <div className="book-title">{book.title}</div>
+            <div className="book-authors">{book.authors ? book.authors[0] : ''}</div>
           </div>
         </li>
     );

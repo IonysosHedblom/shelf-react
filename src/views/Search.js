@@ -6,23 +6,30 @@ import { search } from '../BooksAPI';
 class Search extends Component {
 
   state = {
+    query: '',
     results: []
   };
 
 
 
-  handleInputChange = async event => {
-    const query = event.target.value.trim();
+  searchBooks = event => {
+    const query = event.target.value;
+    this.setState({
+      query
+    });
+
     if (query) {
-      await search(query, 20).then(results => {
-        this.setState({
-          results
+      search(query.trim(), 20).then(books => {
+        books.length > 0 ? this.setState({
+          results: books
+        }) : this.setState({
+          results: []
         });
       });
     } else {
       this.setState({
         results: []
-      })
+      });
     }
   };
 
@@ -33,13 +40,15 @@ class Search extends Component {
         <div className="search-books-bar">
           <button className="close-search" onClick={() => history.push('/')}>Close</button>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author" onChange={this.handleInputChange} />
+            <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={this.searchBooks} />
           </div>
         </div>
         <div className="search-books-results">
-          <h2 className="bookshelf-title">Book results</h2>
+          <h2 className="bookshelf-title">Search results</h2>
           <ol className="books-grid">
-            {this.state.results.length > 0 && this.state.results.map((book, index) => <Book key={index} {...book} title={book.title} authors={book.authors} shelf='none' sortBooks={this.props.sortBooks} />)} 
+            {this.state.results.length > 0 && this.state.results.map(book => (
+              <Book key={book.id}  sortBooks={this.props.sortBooks} book={book} books={this.props.books} />
+            ))} 
           </ol>
         </div>
       </div>

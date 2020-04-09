@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
 import Nav from '../components/Nav';
-import Shelves from '../components/Shelves';
-import { getAll } from '../BooksAPI';
+import Shelf from '../components/Shelf';
 
-class Home extends Component {
-  state = {
-    books: []
-  };
-
-  componentDidMount() {
-    this.getBooks();
-  }
-  // Fetch all books from api
-  getBooks = () => {
-    getAll().then(books => {
-      this.setState({ books });
-    });
-  }
+class Home extends Component {  
   render() {
+    const { books, sortBooks } = this.props;
+    const shelves = [
+      {
+        shelfType: 'currentlyReading',
+        title: 'Currently Reading'
+      },
+      {
+        shelfType: 'wantToRead',
+        title: 'Want to Read'
+      },
+      {
+        shelfType: 'read',
+        title: 'Read'
+      }
+    ];
     return(
       <div className="list-books">
         <Nav />
-        <Shelves books={this.state.books} sortBooks={this.getBooks} />
+        {shelves.map((shelf, index) => {
+          const shelfItems = books.filter(book => book.shelf === shelf.shelfType);
+          return (
+            <div>
+            <Shelf title={shelf.title} books={shelfItems} sortBooks={sortBooks} />
+            </div>
+          )
+        })}
       </div>
     );
   }
