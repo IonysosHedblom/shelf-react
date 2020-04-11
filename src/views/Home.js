@@ -25,7 +25,7 @@ class Home extends Component {
         {shelves.map((shelf, index) => {
           const shelfItems = books.filter(book => book.shelf === shelf.shelfType);
           return (
-            <div>
+            <div key={index}>
             <Shelf title={shelf.title} books={shelfItems} sortBooks={sortBooks} />
             </div>
           )
