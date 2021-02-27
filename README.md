@@ -1,9 +1,12 @@
-# Shelf Project
+# Below is a link to a demo of the application
+https://shelf-react.herokuapp.com/
+
+
+## Shelf Project
 
 Shelf is small online solution for sorting books you are reading, want to or have read.
 
-# Below is a link to a demo of the application
-https://shelf-react.herokuapp.com/
+
 
 
 # Project info
